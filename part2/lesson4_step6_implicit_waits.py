@@ -1,6 +1,5 @@
 # https://stepik.org/lesson/181384/step/6?unit=156009
 
-import time
 from selenium import webdriver
 
 link = 'https://suninjuly.github.io/cats.html'
