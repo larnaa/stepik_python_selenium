@@ -17,9 +17,37 @@ class TestUniqueSelectors(unittest.TestCase):
         browser = self.driver
         browser.get(link)
 
+        first_name = browser.find_element_by_css_selector('.first_block .first')
+        first_name.send_keys('Kesa')
+        last_name = browser.find_element_by_css_selector('.first_block .second')
+        last_name.send_keys('Lisa')
+        email = browser.find_element_by_css_selector('.third_class .third')
+        email.send_keys('KL@google.com')
+
+        button = browser.find_element_by_css_selector("button.btn")
+        button.click()
+        time.sleep(2)
+
+        welcome_text = browser.find_element_by_tag_name('h1')
+        self.assertEqual("Congratulations! You have successfully registered!", welcome_text.text)
+
     def test_registration_bug(self):
         browser = self.driver
         browser.get(link_bug_page)
+
+        first_name = browser.find_element_by_css_selector('.first_block .first')
+        first_name.send_keys('Kesa')
+        last_name = browser.find_element_by_css_selector('.first_block .second')
+        last_name.send_keys('Lisa')
+        email = browser.find_element_by_css_selector('.third_class .third')
+        email.send_keys('KL@google.com')
+
+        button = browser.find_element_by_css_selector("button.btn")
+        button.click()
+        time.sleep(2)
+
+        welcome_text = browser.find_element_by_tag_name('h1')
+        self.assertEqual("Congratulations! You have successfully registered!", welcome_text.text)
 
     def tearDown(self):
         self.driver.close()
@@ -27,29 +55,3 @@ class TestUniqueSelectors(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
-
-'''
-    first_name = browser.find_element_by_css_selector('.first_block  .first_class input')
-    first_name.send_keys('Ivan')
-    last_name = browser.find_element_by_css_selector('.first_block  .second_class input')
-    last_name.send_keys('Petrov')
-    email = browser.find_element_by_css_selector('.third_class input')
-    email.send_keys('IP@mail.ru')
-    phone = browser.find_element_by_css_selector('.second_block  .first_class input')
-    phone.send_keys('80001112233')
-    address = browser.find_element_by_css_selector('.second_block  .second_class input')
-    address.send_keys('Russia')
-
-    button = browser.find_element_by_css_selector("button.btn")
-    button.click()
-    time.sleep(1)
-
-    welcome_text_elt = browser.find_element_by_tag_name("h1")
-    welcome_text = welcome_text_elt.text
-    assert "Congratulations! You have successfully registered!" == welcome_text
-
-finally:
-    time.sleep(10)
-    browser.quit()
-'''
