@@ -1,3 +1,5 @@
+# https://stepik.org/lesson/237257/step/2?unit=209645
+
 from selenium import webdriver
 
 link = "http://selenium1py.pythonanywhere.com/"
